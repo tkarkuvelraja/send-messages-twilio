@@ -1,3 +1,7 @@
+-- Procedure to send messages (send_message_twilio)
+-- Note: Twilio API is used to send messages
+--
+  
 CREATE OR REPLACE
 PROCEDURE send_message_twilio(
     p_to_mobile_code   IN NUMBER,
@@ -45,6 +49,10 @@ WHEN others THEN
   x_return_message := 'Unexpected Error: '||sqlcode||' ['||sqlerrm||']';
 END send_message_twilio;
 /
+
+-- Anonymous block to call send_message_twilio
+-- Note: It will be called from Oracle APEX screen
+--
 
 DECLARE
   p_to_mobile_code   NUMBER;
